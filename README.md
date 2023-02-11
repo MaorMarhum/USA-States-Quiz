@@ -1,1 +1,1 @@
-USA States quiz game.
+USA States quiz game
