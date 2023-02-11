@@ -1,38 +1,168 @@
-.App {
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  direction: rtl;
+  font-family: 'Manrope', sans-serif;
+  ;
+}
+
+body {
+  background: lightblue;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+.section1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.section1 h1 {
+  font-size: 35px;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.section1 h2 {
+  font-size: 30px;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.section1__form {
+  margin: 1.5rem 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.section1__form label {
+  margin: 0.5rem 0;
+  font-size: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.section1__form input {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.button-18 {
+  align-items: center;
+  background-color: #0A66C2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  margin: 1rem 0;
+}
+
+.button-18:hover,
+.button-18:focus {
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.button-18:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.button-18:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+
+.error {
+  font-size: 20px;
+  line-height: 15px;
+  color: red;
+}
+
+.success {
+  font-size: 20px;
+  line-height: 15px;
+  color: green;
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.section2 h1 {
+  font-size: 35px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section2-p {
+  font-size: 35px;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+}
+
+.section2__countdown {
+  font-size: 30px;
+}
+
+.section2__form {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section2__form input {
+  margin: 0.5rem 0;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.less-than-10 {
+  color: red;
+}
+
+@media screen and (max-width: 500px) {
+  .section1 h1 {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .section1 h2 {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
