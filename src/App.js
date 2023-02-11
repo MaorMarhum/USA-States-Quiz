@@ -17,7 +17,7 @@ const CountDown = ({ countOver, seconds, setSeconds }) => {
       }, 1000);
     }
     return () => clearInterval(intervalId);
-  }, [countOver]);
+  }, [countOver, setSeconds]);
 
   return <div className={seconds < 10 ? 'less-than-10' : ''}>{seconds} שניות נותרו</div>
 }
