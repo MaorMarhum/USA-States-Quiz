@@ -1,27 +1,8 @@
 import './App.css';
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Data from './Data'
-
-const CountDown = ({ countOver, seconds, setSeconds }) => {
-  useEffect(() => {
-    let intervalId = null;
-    if (countOver) {
-      setSeconds(45);
-      intervalId = setInterval(() => {
-        setSeconds(seconds => {
-          if (seconds === 0) {
-            clearInterval(intervalId);
-          }
-          return seconds === 0 ? 45 : seconds - 1;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(intervalId);
-  }, [countOver, setSeconds]);
-
-  return <div className={seconds < 10 ? 'less-than-10' : ''}>{seconds} שניות נותרו</div>
-}
-
+import Cube from './components/cube/Cube';
+import Countdown from './components/countdown/Countdown';
 
 function App() {
   const [states, setStates] = useState(Data);
@@ -107,9 +88,15 @@ function App() {
         </section>
       ) : (
         <section className='section2'>
-          <h1>תורו של <span className='section2-p'>{changeNames ? nameUser1 : nameUser2}</span> לשחק</h1>
+          <div className='section2__names'>
+            <div className='section2__names-title'>
+              <h1>{nameUser1}</h1>
+              <h1>{nameUser2}</h1>
+            </div>
+            <Cube winner={winner} />
+          </div>
           <div className='section2__countdown'>
-            <CountDown
+            <Countdown
               countOver={countOver}
               seconds={seconds}
               setSeconds={setSeconds}
