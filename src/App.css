@@ -32,8 +32,10 @@ a {
 }
 
 .section1 h2 {
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .section1__form {
@@ -174,6 +176,13 @@ a {
   margin: 0 2rem;
 }
 
+.section2__nostates ol {
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem 2rem;
+}
+
 @media screen and (max-width: 500px) {
   .section1 h1 {
     margin-left: 1rem;
@@ -183,5 +192,6 @@ a {
   .section1 h2 {
     margin-left: 1rem;
     margin-right: 1rem;
+    font-size: 21px;
   }
 }

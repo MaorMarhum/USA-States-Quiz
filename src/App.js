@@ -2,6 +2,8 @@ import './App.css';
 import React, { useState, useRef } from "react";
 import Data from './Data'
 import Cube from './components/cube/Cube';
+import Error from './assets/error.mp3'
+import Success from './assets/success.mp3'
 import Countdown from './components/countdown/Countdown';
 
 function App() {
@@ -16,8 +18,11 @@ function App() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [stateToRemove, setStateToRemove] = useState("");
+  const [noStates, setNoStates] = useState([])
   const nameUser1Value = useRef('')
   const nameUser2Value = useRef('')
+  const audioSuccess = useRef(new Audio(Success));
+  const audioError = useRef(new Audio(Error));
 
   const changeName1 = () => {
     setNameUser1(nameUser1Value.current.value)
@@ -45,6 +50,8 @@ function App() {
   const handleRemove = () => {
     if (states.includes(stateToRemove)) {
       setStates(states.filter((state) => state !== stateToRemove));
+      setNoStates([...noStates, stateToRemove])
+      audioSuccess.current.play();
       setStateToRemove("");
       resetSeconds();
       setSuccess('כל הכבוד!')
@@ -54,6 +61,7 @@ function App() {
       setChangeNames(!changeNames)
       setWinner(!winner)
     } else {
+      audioError.current.play();
       setError('שם המדינה לא נמצא ברשימה')
       setTimeout(() => {
         setError('');
@@ -76,7 +84,7 @@ function App() {
       {show ? (
         <section className='section1'>
           <h1>ברוכים הבאים למשחק מדינות ארצות הברית</h1>
-          <h2>אנא מלאו את הטופס על מנת להתחיל</h2>
+          <h2>עליכם להזין, כל משתתף בתורו, שם של מדינה הנמצאת בארצות הברית. לאחר הזנת מדינה, לא יהיה ניתן להשתמש בה שוב. משתתף שלא יצליח לחשוב על שם של מדינה תוך 45 שניות, יפסיד!</h2>
           <form onSubmit={handleSubmit} className='section1__form'>
             <label htmlFor="name1">שחקן 1:</label>
             <input type="text" id='name1' placeholder='אנא הכנס שם...' onChange={changeName1} ref={nameUser1Value} />
@@ -112,6 +120,16 @@ function App() {
             <p className='error'>{error}</p>
             <p className='success'>{success}</p>
             <button className='button-18' onClick={handleRemove}>נסה את מזלך</button>
+          </div>
+          <div className='section2__nostates'>
+            <h1>מדינות ששומשו</h1>
+            <ol>
+              {noStates.map((state, index) => {
+                return (
+                  <li key={index}>{state}</li>
+                )
+              })}
+            </ol>
           </div>
         </section>
       )}
