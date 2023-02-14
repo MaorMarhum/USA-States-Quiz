@@ -20,7 +20,7 @@ const Countdown = ({ countOver, seconds, setSeconds, audioCountdownSound }) => {
             }, 1000);
         }
         return () => clearInterval(intervalId);
-    }, [countOver, setSeconds]);
+    }, [countOver, setSeconds, audioCountdownSound]);
 
     return <div className={seconds < 10 ? 'less-than-10' : ''}>{seconds} שניות נותרו</div>
 }
